@@ -9,13 +9,22 @@ see [egg docs][egg] for more detail.
 ```bash
 $ npm i
 $ npm run dev
-$ open http://localhost:7001/
+$ open http://localhost:3000/
 ```
 
-### Deploy
+### Staging
 
 ```bash
-$ npm start
+$ EGG_SERVER_ENV=stag npm start
+$ open http://localhost:3001/
+$ npm run stag
+```
+
+### Production
+
+```bash
+$ EGG_SERVER_ENV=prod npm start
+$ open http://localhost:3002/
 $ npm stop
 ```
 
