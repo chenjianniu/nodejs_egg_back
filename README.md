@@ -16,15 +16,15 @@ $ open http://localhost:3000/
 
 ```bash
 $ EGG_SERVER_ENV=stag npm start
-$ open http://localhost:3001/
-$ npm run stag
+$ open http://localhost:8080/
+$ npm stop
 ```
 
 ### Production
 
 ```bash
 $ EGG_SERVER_ENV=prod npm start
-$ open http://localhost:3002/
+$ open http://localhost:8080/
 $ npm stop
 ```
 
