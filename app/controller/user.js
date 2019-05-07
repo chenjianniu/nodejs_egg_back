@@ -12,7 +12,7 @@ class User extends Controller {
     console.log('Body参数 => ',ctx.request.body)
     const result = await ctx.service.user.query()
     // ctx.body = result
-    this.ctx.body = `say: ${this.ctx.hello}`;
+    ctx.body = `say: ${this.ctx.hello}`
   }
 }
 
