@@ -6,8 +6,8 @@ class UserService extends Service {
    * [ 增 ]
    */
   async create() {
-  	const result = await this.app.mysql.insert('users', { uid: 'uid:000', name: 'name:beijing' })
-  	return result.affectedRows === 1 ? { message: '添加成功' } : { message: '添加失败' }
+    const result = await this.app.mysql.insert('users', { uid: 'uid:000', name: 'name:beijing' })
+    return result.affectedRows === 1 ? { message: '添加成功' } : { message: '添加失败' }
   }
 
   /**
@@ -15,7 +15,7 @@ class UserService extends Service {
     */
   async delete() {
     const result = await this.app.mysql.delete('users', {
-    	id: 1
+      id: 1
     })
     return result.affectedRows === 1 ? { message: '删除成功' } : { message: '删除失败' }
   }
