@@ -7,7 +7,7 @@ class UserService extends Service {
 	 */
 	async create() {
 		const result = await this.app.mysql.insert('users', { uid: 'uid:000', name: 'name:beijing' })
-    return result.affectedRows === 1 ? { message: '添加成功' } : { message: '添加失败' }
+		return result.affectedRows === 1 ? { message: '添加成功' } : { message: '添加失败' }
 	}
 
 	/**
