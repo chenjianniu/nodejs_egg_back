@@ -1,3 +1,5 @@
+'use strict'
+
 const Service = require('egg').Service
 
 class UserService extends Service {
@@ -45,10 +47,10 @@ class UserService extends Service {
     // 获取多条记录
     const user = await this.ctx.model.User.findAll({
       where: { id: 1 },
-      attributes: ['id', 'uid', 'name'],
-      orders: [['id', 'asc']],
+      attributes: [ 'id', 'uid', 'name' ],
+      orders: [[ 'id', 'asc' ]],
       limit: 10,
-      offset: 0
+      offset: 0,
     })
     return user
   }
@@ -59,9 +61,9 @@ class UserService extends Service {
   async query() {
     const result = await this.app.model.query(
       'select id, uid, name from users where id = ?',
-      { replacements: [ 1 ], type:'SELECT' }
+      { replacements: [ 1 ], type: 'SELECT' }
     )
-    console.log('query => ',result)
+    console.log('query => ', result)
     return result
   }
 
