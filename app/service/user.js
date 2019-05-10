@@ -2,17 +2,17 @@ const Service = require('egg').Service
 
 class UserService extends Service {
 
-	/**
-	 * [ 增 ]
-	 */
-	async create() {
+/**
+ * [ 增 ]
+ */
+  async create() {
     const result = await this.ctx.model.User.create({ uid: 'uid:000', name: 'name:beijing' })
     return result.dataValues ? { message: '添加成功' } : { message: '添加失败' }
-	}
+  }
 
-	/**
-	 * [ 删 ]
-	 */
+/**
+ * [ 删 ]
+ */
   async delete() {
     const user = await this.ctx.model.User.findById(1)
     if (!user) {
@@ -32,7 +32,7 @@ class UserService extends Service {
       return { message: '更新失败' }
     }
     await user.update({ uid: 'uid:0002', name: 'name:beijing2' })
-  	return { message: '更新成功' }
+    return { message: '更新成功' }
   }
 
 
@@ -41,9 +41,9 @@ class UserService extends Service {
    */
   async list() {
     // 获取单条记录
-  	// const user = await this.ctx.model.User.findAll({ where: { id: 1 } })
+    // const user = await this.ctx.model.User.findAll({ where: { id: 1 } })
     // 获取多条记录
-  	const user = await this.ctx.model.User.findAll({
+    const user = await this.ctx.model.User.findAll({
       where: { id: 1 },
       columns: ['id', 'uid', 'name'],
       orders: [['id', 'asc']],
@@ -57,10 +57,11 @@ class UserService extends Service {
    * [ 自定义查询 ]
    */
   async query() {
-  	const result = await this.app.model.query(
-      'select id, uid, name from users where id = 1',
-      { type:'SELECT' }
+    const result = await this.app.model.query(
+      'select id, uid, name from users where id = ?',
+      { replacements: [ 1 ], type:'SELECT' }
     )
+    console.log('query => ',result)
     return result
   }
 
