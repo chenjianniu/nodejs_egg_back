@@ -45,7 +45,7 @@ class UserService extends Service {
     // 获取多条记录
     const user = await this.ctx.model.User.findAll({
       where: { id: 1 },
-      columns: ['id', 'uid', 'name'],
+      attributes: ['id', 'uid', 'name'],
       orders: [['id', 'asc']],
       limit: 10,
       offset: 0
