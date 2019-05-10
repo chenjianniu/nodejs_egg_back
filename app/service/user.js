@@ -2,17 +2,17 @@ const Service = require('egg').Service
 
 class UserService extends Service {
 
-/**
- * [ 增 ]
- */
+  /**
+    * [ 增 ]
+    */
   async create() {
     const result = await this.ctx.model.User.create({ uid: 'uid:000', name: 'name:beijing' })
     return result.dataValues ? { message: '添加成功' } : { message: '添加失败' }
   }
 
-/**
- * [ 删 ]
- */
+  /**
+    * [ 删 ]
+    */
   async delete() {
     const user = await this.ctx.model.User.findById(1)
     if (!user) {
